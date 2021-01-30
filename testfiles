@@ -1,0 +1,24 @@
+# file to check java compilation
+# made by Robert Brown 2021
+
+echo "Welcome to Robert's Java Compilation Tool"
+echo "This tool will compile java files within a folder"
+echo "& Print any errors to console and a .txt file"
+
+echo "💀⚡ USE AT YOUR OWN RISK 💀⚡"
+echo "This software is provided without warranty"
+
+read -p "Press enter to continue"
+javac
+# looks for each java file
+for F in `find . -mindepth 2 -maxdepth 2 -type f -name "*.java"`
+do
+    echo "Found file" $F "📂"
+    javac $F
+done
+# checks for any class files and removes them
+for C in `find . -mindepth 2 -maxdepth 2 -type f -name "*.class"`
+do
+    echo "Removing class" $F "❌"
+    rm $C
+done
